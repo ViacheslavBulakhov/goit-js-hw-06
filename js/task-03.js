@@ -13,22 +13,11 @@ const images = [
   },
 ];
 
-
 const galleryRef = document.querySelector('.gallery');
 
-const createItem = images.map(image => {
-  const listItemRef = document.createElement('li');
-  const imageRef = document.createElement("img");
-  imageRef.alt = image.alt;
-  imageRef.src = image.url;
-  imageRef.classList.add('gallery-item');
+const itemEl = images.map((image) => `<li><img class="gallery-item" src=${image.url} alt=${image.alt}></li>`).join('');
 
-  listItemRef.appendChild(imageRef)
-  console.log(listItemRef);
+galleryRef.insertAdjacentHTML("afterbegin", itemEl);
 
-  return listItemRef;
-});
-
-galleryRef.append(...createItem);
 
 

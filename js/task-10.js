@@ -22,7 +22,9 @@ inputRef.addEventListener('blur', (event) => {
 }
 )
 
+
 function createBoxes(amount) {
+  let totalEl = [];
   for (let i = 0; i < elements; i += 1) {
     dimensionsBox += 10;
     const createEl = document.createElement('div');
@@ -30,8 +32,10 @@ function createBoxes(amount) {
     createEl.style.width = `${dimensionsBox}px`;
     createEl.style.height = `${dimensionsBox}px`;
     createEl.style.backgroundColor = colorChange;
-    boxRef.append(createEl);
+    
+    totalEl.push(createEl)
   }
+  boxRef.append(...totalEl);
 }
 
 
